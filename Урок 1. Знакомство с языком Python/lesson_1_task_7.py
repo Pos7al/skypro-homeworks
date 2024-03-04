@@ -1,33 +1,44 @@
 
-def a():
+def print_one():
     return 1
 
-def b():
+
+def print_two():
     return 2
 
-def c():
+
+def print_three():
     return 3
 
-def d():
+
+def print_four():
     return 4
 
-def e():
+
+def print_five():
     return 5
 
-def f():
+
+def print_six():
     return 6
 
-def g():
+
+def print_seven():
     return 7
 
-def h():
+
+def print_eight():
     return 8
 
-def i():
+
+def print_nine():
     return 9
 
-def j():
+
+def print_zero():
     return 0
 
 
-print(h(), h(), j(), j(), e(), e(), e(), c(), e(), c(), e(), sep="")
+print(print_eight(), print_eight(), print_zero(), print_zero(), print_five(),
+      print_five(), print_five(), print_three(), print_five(), print_three(),
+      print_five(), sep="")
