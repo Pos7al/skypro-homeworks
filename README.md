@@ -14,8 +14,8 @@ Skills:
 * Working with DB: pgAdmin, practical skills with SQL
 * Languages: English / Russian / Estonian
 
-- 🌱 I’m currently learning Mobile testing, Automation of testing in Python 
-- 📫 How to reach me: anton.emeliyanov@gmail.com 
+🌱 I’m currently learning Mobile testing, Automation of testing in Python 
+📫 How to reach me: anton.emeliyanov@gmail.com 
 
 
 [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg' alt='github' height='40'>](https://github.com/Pos7al)  
