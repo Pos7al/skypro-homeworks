@@ -15,6 +15,7 @@ Skills:
 * Languages: English / Russian / Estonian
 
 🌱 I’m currently learning Mobile testing, Automation of testing in Python 
+
 📫 How to reach me: anton.emeliyanov@gmail.com 
 
 
