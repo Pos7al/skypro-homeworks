@@ -8,13 +8,13 @@ Now I am finishing my studies at SkyPro, where I have already gained practical e
 Skills: 
 * Test design techniques and testing methodologies 
 * Creating test documentation: test plans, checklists, test cases, bug reports, requirements analysis and reports on test results
-* Types of testing: functional, non-functional, UX/UI, Mobile, module, integration, smoke, regression
+* Types of testing: functional, non-functional, UX/UI, mobile, module, integration, smoke, regression
 * Document storage systems: Jira, Confluence, Notion, Trello, Qase.io, Sitechko, Checkvist, Miro
 * Api testing: Postman, Chrome DevTools, Mockoon, Swagger
 * Working with DB: pgAdmin, practical skills with SQL
 * Languages: English / Russian / Estonian
 
-🌱 I’m currently learning Automation of testing in Python 
+🌱 I’m currently learning: Automation of testing in Python 
 
 📫 How to reach me: anton.emeliyanov@gmail.com 
 
