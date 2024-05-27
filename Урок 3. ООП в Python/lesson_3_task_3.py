@@ -1,8 +1,8 @@
 from address import Address
 from mailing import Mailing
 
-to_address = Address("987654", "Москва", "Весёлый бульвар", "12", "4")
-from_address = Address("456789", "Санкт-Петербург", "Проспект Героев", "3", "4")
+to_address = Address("98765", "Москва", "Весёлый бульвар", "12", "4")
+from_address = Address("45678", "Санкт-Петербург", "Проспект Героев", "3", "4")
 
 mailing = Mailing(to_address, from_address, 750, "TRKNR9898989898RU")
 
