@@ -194,7 +194,6 @@ def draw_fish():
         t.circle(25, 180)
         t.circle(-15, 180)
 
-
     # Функция для рисования пузырьков
     def draw_bubble(x, y, radius):
         t.penup()
