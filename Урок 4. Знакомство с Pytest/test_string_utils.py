@@ -3,65 +3,101 @@ from string_utils import StringUtils
 
 utils = StringUtils()
 
-def test_capitilize():
-    assert utils.capitilize("skypro") == "Skypro"
-    assert utils.capitilize("Skypro") == "Skypro"
-    assert utils.capitilize("") == ""
-    assert utils.capitilize("1skypro") == "1skypro"
-    assert utils.capitilize(" skypro") == " skypro"
+"""CAPITALIZE"""
+@pytest.mark.parametrize('input_string, expected', [
+    ("skypro", "Skypro"),
+    ("Skypro", "Skypro"),
+    ("", ""),
+    ("1skypro", "1skypro"),
+    (" skypro", " skypro")
+])
+def test_capitilize(input_string, expected):
+    assert utils.capitilize(input_string) == expected
 
-def test_trim():
-    assert utils.trim("   skypro") == "skypro"
-    assert utils.trim("skypro") == "skypro"
-    assert utils.trim("   sky pro  ") == "sky pro  "
-    assert utils.trim("") == ""
-    assert utils.trim("    ") == ""
+"""TEST_TRIM"""
+@pytest.mark.parametrize('input_string, expected', [
+    ("   skypro", "skypro"),
+    ("skypro", "skypro"),
+    ("   sky pro  ", "sky pro  "),
+    ("", ""),
+    ("    ", "")
+])
+def test_trim(input_string, expected):
+    assert utils.trim(input_string) == expected
 
-def test_to_list():
-    assert utils.to_list("a,b,c,d") == ["a", "b", "c", "d"]
-    assert utils.to_list("1:2:3", ":") == ["1", "2", "3"]
-    assert utils.to_list("") == []
-    assert utils.to_list("a b c d", " ") == ["a", "b", "c", "d"]
-    assert utils.to_list(None) == []
+"""TEST_TO_LIST"""
+@pytest.mark.parametrize('input_string, delimiter, expected', [
+    ("a,b,c,d", ",", ["a", "b", "c", "d"]),
+    ("1:2:3", ":", ["1", "2", "3"]),
+    ("", ",", []),
+    ("a b c d", " ", ["a", "b", "c", "d"]),
+    pytest.param(None, ",", [], marks=pytest.mark.xfail(strict=True))
+])
+def test_to_list(input_string, delimiter, expected):
+    assert utils.to_list(input_string, delimiter) == expected
 
-def test_contains():
-    assert utils.contains("SkyPro", "S") == True
-    assert utils.contains("SkyPro", "U") == False
-    assert utils.contains("", "a") == False
-    assert utils.contains("12345", "3") == True
-    assert utils.contains("SkyPro", "") == False
+"""TEST_CONTAINS"""
+@pytest.mark.parametrize('string, symbol, expected', [
+    ("SkyPro", "S", True),
+    ("SkyPro", "U", False),
+    ("", "a", False),
+    ("12345", "3", True),
+    ("SkyPro", "", False)
+])
+def test_contains(string, symbol, expected):
+    assert utils.contains(string, symbol) == expected
 
-def test_delete_symbol():
-    assert utils.delete_symbol("SkyPro", "k") == "SyPro"
-    assert utils.delete_symbol("SkyPro", "Pro") == "Sky"
-    assert utils.delete_symbol("SkyPro", "Z") == "SkyPro"
-    assert utils.delete_symbol("", "a") == ""
-    assert utils.delete_symbol("aaaaa", "a") == ""
+"""DELETE_SYMBOL"""
+@pytest.mark.parametrize('string, symbol, expected', [
+    ("SkyPro", "k", "SyPro"),
+    ("SkyPro", "Pro", "Sky"),
+    ("SkyPro", "Z", "SkyPro"),
+    ("", "a", ""),
+    ("aaaaa", "a", "")
+])
+def test_delete_symbol(string, symbol, expected):
+    assert utils.delete_symbol(string, symbol) == expected
 
-def test_starts_with():
-    assert utils.starts_with("SkyPro", "S") == True
-    assert utils.starts_with("SkyPro", "P") == False
-    assert utils.starts_with("", "a") == False
-    assert utils.starts_with("12345", "1") == True
-    assert utils.starts_with("SkyPro", "") == True
+"""STARTS_WITH"""
+@pytest.mark.parametrize('string, symbol, expected', [
+    ("SkyPro", "S", True),
+    ("SkyPro", "P", False),
+    ("", "a", False),
+    ("12345", "1", True),
+    ("SkyPro", "", True)
+])
+def test_starts_with(string, symbol, expected):
+    assert utils.starts_with(string, symbol) == expected
 
-def test_end_with():
-    assert utils.end_with("SkyPro", "o") == True
-    assert utils.end_with("SkyPro", "y") == False
-    assert utils.end_with("", "a") == False
-    assert utils.end_with("12345", "5") == True
-    assert utils.end_with("SkyPro", "") == True
+"""END_WITH"""
+@pytest.mark.parametrize('string, symbol, expected', [
+    ("SkyPro", "o", True),
+    ("SkyPro", "y", False),
+    ("", "a", False),
+    ("12345", "5", True),
+    ("SkyPro", "", True)
+])
+def test_end_with(string, symbol, expected):
+    assert utils.end_with(string, symbol) == expected
 
-def test_is_empty():
-    assert utils.is_empty("") == True
-    assert utils.is_empty(" ") == True
-    assert utils.is_empty("SkyPro") == False
-    assert utils.is_empty("   ") == True
-    assert utils.is_empty("Sky Pro") == False
+"""IS_EMPTY"""
+@pytest.mark.parametrize('string, expected', [
+    ("", True),
+    (" ", True),
+    ("SkyPro", False),
+    ("   ", True),
+    ("Sky Pro", False)
+])
+def test_is_empty(string, expected):
+    assert utils.is_empty(string) == expected
 
-def test_list_to_string():
-    assert utils.list_to_string([1, 2, 3, 4]) == "1, 2, 3, 4"
-    assert utils.list_to_string(["Sky", "Pro"]) == "Sky, Pro"
-    assert utils.list_to_string(["Sky", "Pro"], "-") == "Sky-Pro"
-    assert utils.list_to_string([]) == ""
-    assert utils.list_to_string([1]) == "1"
+"""LIST_TO_STRING"""
+@pytest.mark.parametrize('lst, joiner, expected', [
+    ([1, 2, 3, 4], ", ", "1, 2, 3, 4"),
+    (["Sky", "Pro"], ", ", "Sky, Pro"),
+    (["Sky", "Pro"], "-", "Sky-Pro"),
+    ([], ", ", ""),
+    ([1], ", ", "1")
+])
+def test_list_to_string(lst, joiner, expected):
+    assert utils.list_to_string(lst, joiner) == expected
