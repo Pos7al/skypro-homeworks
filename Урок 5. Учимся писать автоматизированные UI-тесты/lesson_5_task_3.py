@@ -25,3 +25,6 @@ for x in range(5):
 # Вывод на экран размер списков в каждом браузере
 print(f'Размер списка в Chrome: {len(del_btns_chrome)}')
 print(f'Размер списка в Firefox: {len(del_btns_firefox)}')
+
+chrome.quit()
+firefox.quit()
