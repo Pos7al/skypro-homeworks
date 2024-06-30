@@ -11,16 +11,24 @@ firefox = webdriver.Firefox()
 chrome.get("http://the-internet.herokuapp.com/entry_ad")
 firefox.get("http://the-internet.herokuapp.com/entry_ad")
 
-wait = WebDriverWait(chrome, 10)
-wait = WebDriverWait(firefox, 10)
+# Ожидаем появления модального окна
+chrome_wait = WebDriverWait(chrome, 10)
+firefox_wait = WebDriverWait(firefox, 10)
 
-modal_window = wait.until(
+
+modal_window = chrome_wait.until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, ".modal")))
-close_button = wait.until(EC.element_to_be_clickable(
+chrome_close_button = chrome_wait.until(EC.element_to_be_clickable(
     (By.CSS_SELECTOR, ".modal-footer")))
-sleep(5)
 
-close_button.click()
+modal_window = firefox_wait.until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, ".modal")))
+firefox_close_button = firefox_wait.until(EC.element_to_be_clickable(
+    (By.CSS_SELECTOR, ".modal-footer")))
+sleep(3)
+
+chrome_close_button.click()
+firefox_close_button.click()
 sleep(2)
 
 chrome.quit()
